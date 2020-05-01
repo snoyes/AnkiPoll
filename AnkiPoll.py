@@ -30,12 +30,10 @@ def switchProfile(name):
     invoke('loadProfile', name=name)
 
 if __name__ == "__main__":
-    with open('ankiProfileNames.txt', 'r') as f:
-        names = f.read().splitlines()
 
-    for name in names:
+    for name in invoke('getProfiles'):
         switchProfile(name)
-        # Anki is set to auto sync. If you don't want that, invoke('sync')
+        # Anki may be set to auto sync when switching profiles. If not, invoke('sync')
         due = invoke('findCards', query='is:due')
         new = invoke('findCards', query='is:new')
         studied = invoke('findCards', query='rated:1')
