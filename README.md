@@ -1,5 +1,5 @@
 # AnkiPoll
-Cycle through a list of Anki profiles and gather info about each. Anki must be running with the [AnkiConnect](https://ankiweb.net/shared/info/2055492159) addon installed.
+Cycle through the Anki profiles and gather info about each. Anki must be running with the [AnkiConnect](https://ankiweb.net/shared/info/2055492159) addon installed.
 
 Example output:
 
