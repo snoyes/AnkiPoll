@@ -20,19 +20,10 @@ def invoke(action, **params):
     except urllib.error.URLError as ex:
         print("Could not reach Anki. Is Anki running and the AnkiConnect add-on installed?")
     
-
-def countStudied(name):
-    switchProfile(name)
-    studied = invoke('findCards', query='rated:1')
-    return len(studied)
-
-def switchProfile(name):
-    invoke('loadProfile', name=name)
-
 if __name__ == "__main__":
 
     for name in invoke('getProfiles'):
-        switchProfile(name)
+        invoke('loadProfile', name=name)
         # Anki may be set to auto sync when switching profiles. If not, invoke('sync')
         due = invoke('findCards', query='is:due')
         new = invoke('findCards', query='is:new')
